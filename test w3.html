@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#deuv {
+  margin-top: 210px;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-play-state: paused;
+}
+
+/* Standard syntax */
+@keyframes example {
+  0%   {background-color:red; bottom:0px;}
+  12%  {background-color:yellow; bottom:50px;}
+  25%  {background-color:blue; bottom:100px;}
+  37%  {background-color:green; bottom:150px;}
+  50% {background-color:red; bottom:200px;}
+  62%  {background-color:yellow; bottom:150px;}
+  75%  {background-color:blue; bottom:100px;}
+  87%  {background-color:green; bottom:50px;}
+  100% {background-color:red; bottom:0px;}
+}
+</style>
+</head>
+<body>
+<script>
+var droite = 0;
+function Apa() {
+document.getElementById("deuv").style.animationPlayState = "running";
+}
+function Turn() {
+droite += 20;
+document.getElementById("deuv").style.marginLeft = droite + "px";
+}
+</script>
+<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+<button onclick="Apa()">tape</button>
+<button onmousedown="Turn()">turn</button>
+
+<div id="deuv"></div>
+
+</body>
+</html>
+

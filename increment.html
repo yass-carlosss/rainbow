@@ -1,0 +1,31 @@
+<html>
+<body>
+<p class="increment" >0</p>
+<script>
+var p = document.querySelector('p')
+
+
+
+document.addEventListener('keydown', haut, false);
+
+function haut () {
+var x = event.key
+var number = parseInt(p.innerText);
+if (x == "ArrowUp") {
+    
+    number++;
+    p.style.marginLeft = number;
+    p.innerText = number;
+    }
+else if (x == "ArrowDown") {
+    number--;
+    p.style.marginLeft = number;
+    p.innerText = number;
+    }
+else {
+alert("pas s");
+}
+}
+</script>
+</body>
+</html>

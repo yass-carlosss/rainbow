@@ -1,0 +1,21 @@
+<html>
+<link rel="stylesheet" href="file:///C:/Users/Fanta/Documents/lancer.css">
+<body>
+<p>Click the button to display a random number between 1 and 100.</p>
+
+<button onclick="myFunction()">Try it</button>
+<div id="des"></div>
+<p id="demo"></p>
+        
+<script>
+function myFunction() {
+    var x = document.getElementById("demo");
+    var a = Math.floor((Math.random() * 6) + 1);
+    x.innerHTML = a;
+    if (a > 0 && a <= 6) {
+        document.getElementById("des").style.display = "flex";
+    }
+}
+</script>
+</body>
+</html>

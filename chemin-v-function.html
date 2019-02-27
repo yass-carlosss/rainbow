@@ -1,0 +1,198 @@
+<html>
+<head>
+<style>
+body {
+    background: url("https://image.noelshack.com/fichiers/2019/08/2/1550577519-dessin-chemin-1.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+#smiley{
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png");
+    position: absolute;
+    bottom: 200;
+    left: 1062;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#fleche {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;    
+}
+.droite {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505341-go-next-5.png");
+    border-radius: 20px;
+}
+.gauche {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505491-go-next-5.png");
+    border-radius: 20px;
+}
+.haut {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505634-go-next-5.png");
+    border-radius: 20px;
+}
+.bas {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505696-go-next-5.png");
+    border-radius: 20px;
+    margin-left: 55px;
+}
+</style>
+</head>
+<body>
+<p>froid =</p><p id="froid">0</p>
+<p>chaud =</p><p id="chaud">0</p>
+<p>horizontal = </p><p id="horizon">0</p><br>
+<p>vertical = </p><p id="verti">0</p>
+<p id="wid"></p>
+<p id="hei"></p>
+<div id="smiley"></div>
+<div id="fleche">
+    <button type="button" onclick="MarginR()" class="gauche"></button>
+    <button type="button" onmouseup="MarginB()" class="haut"></button>
+    <button type="button" onclick="MarginL()" class="droite"></button>
+    <button type="button" onmouseup="MarginT()" class="bas"></button>
+</div>
+<button id="button" onclick="Resol()">Problème ?</button>
+<button id="button2" onclick="Info()">Informations</button>
+<script>
+
+        var horizontal = 0;
+        var vertical = 0;
+        var chaud = 0;
+        var froid = 0;
+
+        document.getElementById("froid").innerHTML = froid;
+        document.getElementById("chaud").innerHTML = chaud;
+        var width = document.getElementById("wid").innerHTML = screen.availWidth;
+        var height = document.getElementById("hei").innerHTML = screen.availHeight;
+
+        if ( width == 1920 && height == 1040) {
+            document.getElementById("button").style.display = "none";
+        }
+
+        function Resol() {
+            if (width < 1920 || height < 1040) {
+                alert("La résolution de votre navigateur ne permet pas d'afficher correctement ce contenu.");
+            }
+        }
+
+        function Info() {
+            alert("Ce contnu fonctionne seulement sur Google Chrome ET en résolution 1920x1080.");
+        }
+
+        function MarginL()  {
+            //Glace du début / Entrée glace par la droite
+            if (vertical > 151 && vertical < 262 && horizontal > -153 && horizontal < 151) {
+            document.getElementById("smiley").style.background = "url(' https://image.noelshack.com/fichiers/2019/08/3/1550665397-visage-congele-1f976.png')";             
+            froid++;
+            document.getElementById("froid").innerHTML = froid;
+            }
+            //Glace du début / Sortie glace par la droite
+            else if (horizontal > 151) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }
+            //Glace du début / Correction chemin du haut
+            else if (vertical > 263 && horizontal < 151) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }
+            horizontal += 38;  
+            document.getElementById("smiley").style.marginLeft = horizontal + "px";     
+            document.getElementById("horizon").innerHTML = horizontal; 
+        }
+        
+        
+        function MarginT()  {
+            //Glace du début / Entrée glace
+            if (vertical > 154 && vertical < 305 && horizontal > -150 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url(' https://image.noelshack.com/fichiers/2019/08/3/1550665397-visage-congele-1f976.png')";             
+            froid++;
+            document.getElementById("froid").innerHTML = froid;
+
+        }
+            //Glace du début / Sortie glace
+            else if (vertical > 264 && horizontal > -150 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }
+            else if (vertical < 153 && horizontal > -150 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+        }
+            vertical -= 38;  
+            document.getElementById("smiley").style.marginBottom = vertical + "px";
+            document.getElementById("verti").innerHTML = vertical;
+        }
+        
+        
+        function MarginR()  {
+            //Glace du début / Entrée glace par la gauche
+            if (vertical > 151 && vertical < 262 && horizontal > -113 && horizontal < 151) {
+            document.getElementById("smiley").style.background = "url(' https://image.noelshack.com/fichiers/2019/08/3/1550665397-visage-congele-1f976.png')";             
+            froid++;
+            document.getElementById("froid").innerHTML = froid;
+            }
+            //Glace du début / Sortie glace par la gauche
+            else if (vertical < 153 && vertical > 264 && horizontal < -112) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }
+            //Glace du début / Correction chemin du haut
+            else if (vertical > 263 && horizontal < 151) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }
+            else if (vertical < 39 && horizontal < 1 && horizontal > -531) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/4/1550783931-emoji-visage-trop-chaud-1f975.png')";
+            chaud++;
+            document.getElementById("chaud").innerHTML = chaud;
+
+        }
+            horizontal -= 38;  
+            document.getElementById("smiley").style.marginLeft = horizontal + "px";
+            document.getElementById("horizon").innerHTML = horizontal;
+        }
+        
+        
+        function MarginB()  {
+            //Glace du début / Entrée glace
+            if (vertical > 113 && vertical < 263 && horizontal > -150 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url(' https://image.noelshack.com/fichiers/2019/08/3/1550665397-visage-congele-1f976.png')";             
+            froid++;
+            document.getElementById("froid").innerHTML = froid;
+
+        }
+            /*//Glace du début / Sortie glace
+            else if (vertical < 160 || vertical > 300 && horizontal > -150 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }*/
+        else if (vertical > 264 && horizontal > -150 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+            document.getElementById("verti").innerHTML = vertical;
+        }
+        
+         
+            
+            vertical += 38;  
+            document.getElementById("smiley").style.marginBottom = vertical + "px";
+            document.getElementById("verti").innerHTML = vertical;
+        }
+        
+        
+        
+        </script>
+</body>
+</html>

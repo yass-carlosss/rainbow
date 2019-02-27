@@ -1,0 +1,126 @@
+<html>
+<head>
+<style>
+body {
+    background: url(https://media.koreus.com/201606/4-saisons-rue-new-jersey.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#vago {
+    width: 120px;
+    height: 120px;
+    background: url("https://www.significationsmileys.fr/img/emojis-fr/emoji-leger-sourire-1F642.png");
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+#fleche {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;    
+}
+.droite {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505341-go-next-5.png");
+    border-radius: 20px;
+}
+.gauche {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505491-go-next-5.png");
+    border-radius: 20px;
+}
+.haut {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505634-go-next-5.png");
+    border-radius: 20px;
+}
+.bas {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505696-go-next-5.png");
+    border-radius: 20px;
+    margin-left: 55px;
+}
+/*
+.aaa:hover {
+    background: url(https://image.noelshack.com/fichiers/2019/05/6/1549140153-2019-02-02-2.png);
+}
+*/
+</style>
+</head>
+<body>
+<div id="vago"></div>
+
+<div id="fleche">
+<button type="button" onclick="MarginR()" class="gauche"></button>
+<button type="button" onclick="MarginB()" class="haut"></button>
+<button type="button" onclick="MarginL()" class="droite"></button>
+<button type="button" onclick="MarginT()" class="bas"></button>
+</div>
+
+<script>
+
+var smiley = 0;
+var vertical = 0;
+function MarginL()  {
+        if (smiley > 240 && smiley < 540) {
+            document.getElementById("vago").style.background = "url('https://www.significationsmileys.fr/img/emojis-fr/emoji-visage-trop-chaud-1F975.png')";
+
+        }
+        else if (smiley > 540 && smiley < 920) {
+            document.getElementById("vago").style.background = "url('https://www.significationsmileys.fr/img/emojis-fr/smiley-inquiet-whatsapp-1F61F.png')";
+        }
+        else if (smiley > 920) {
+            document.getElementById("vago").style.background = "url('https://www.significationsmileys.fr/img/emojis-fr/visage-congele-1F976.png')";
+        }
+            smiley += 40; //or += value
+        
+            
+            document.getElementById("vago").style.marginLeft = smiley + "px";
+        
+        
+        
+}
+
+
+function MarginT()  {
+        vertical += 40; //or += value
+        document.getElementById("vago").style.marginTop = vertical + "px";
+}
+
+
+function MarginR()  {
+       if (smiley < 320) {
+            document.getElementById("vago").style.background = "url('https://www.significationsmileys.fr/img/emojis-fr/emoji-leger-sourire-1F642.png')";
+        }
+        else if (smiley < 320 && smiley > 620) {
+            document.getElementById("vago").style.background = "https://www.significationsmileys.fr/img/emojis-fr/emoji-leger-sourire-1F642.png')";
+        }
+        else if (smiley < 620 && smiley < 1000) {
+            document.getElementById("vago").style.background = "url('https://www.significationsmileys.fr/img/emojis-fr/emoji-visage-trop-chaud-1F975.png')";
+        }
+        else if (smiley < 1000) {
+            document.getElementById("vago").style.background = "url('https://www.significationsmileys.fr/img/emojis-fr/smiley-inquiet-whatsapp-1F61F.png')";
+        }
+
+        smiley -= 40; //or += value
+    
+        document.getElementById("vago").style.marginLeft = smiley + "px";
+}
+
+
+function MarginB()  {
+        vertical -= 40; //or += value
+        document.getElementById("vago").style.marginTop = vertical + "px";
+}
+
+console.log(smiley);
+
+</script>
+
+</body>
+</html>

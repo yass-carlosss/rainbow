@@ -1,0 +1,132 @@
+<html>
+<head>
+<style>
+body {
+    background: url("https://image.noelshack.com/fichiers/2019/08/2/1550577519-dessin-chemin-1.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+#smiley{
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png");
+    position: absolute;
+    bottom: 200;
+    left: 1062;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#fleche {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;    
+}
+.droite {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505341-go-next-5.png");
+    border-radius: 20px;
+}
+.gauche {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505491-go-next-5.png");
+    border-radius: 20px;
+}
+.haut {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505634-go-next-5.png");
+    border-radius: 20px;
+}
+.bas {
+    width: 50px;
+    height: 50px;
+    background: url("https://image.noelshack.com/fichiers/2019/08/1/1550505696-go-next-5.png");
+    border-radius: 20px;
+    margin-left: 55px;
+}
+</style>
+</head>
+<body>
+<div id="smiley"></div>
+<div id="fleche">
+    <button type="button" onclick="MarginR()" class="gauche"></button>
+    <button type="button" onclick="MarginB()" class="haut"></button>
+    <button type="button" onclick="MarginL()" class="droite"></button>
+    <button type="button" onclick="MarginT()" class="bas"></button>
+</div>
+<script>
+
+        var horizontal = 0;
+        var vertical = 0;
+        var chaud = 0;
+        var froid = 0;
+        function MarginL()  {
+            //Glace du début
+            if (vertical > 100 && vertical < 280 && horizontal > -160 && horizontal < 160) {
+            horizontal += 40;  
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550580131-nouvelle-lune-avec-visage-whatsapp-1f31a.jpg')";
+
+        }   //Glace du début
+            else if (vertical < 160 || vertical > 240 && horizontal > -160 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }
+                    horizontal += 40;  
+                    document.getElementById("smiley").style.marginLeft = horizontal + "px";      
+        }
+        
+        
+        function MarginT()  {
+            if (vertical > 200 && vertical < 280 && horizontal > -160 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550580131-nouvelle-lune-avec-visage-whatsapp-1f31a.jpg')";
+
+        }
+            //Glace du début
+            else if (vertical < 160 || vertical > 240 && horizontal > -160 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }
+            vertical -= 40;  
+            document.getElementById("smiley").style.marginBottom = vertical + "px";
+        }
+        
+        
+        function MarginR()  {
+            if (horizontal < -160 && horizontal > 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550580131-nouvelle-lune-avec-visage-whatsapp-1f31a.jpg')";
+
+        }
+            //Glace du début
+            else if (vertical < 160 || vertical > 240 && horizontal > -160 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }
+            horizontal -= 40;  
+            document.getElementById("smiley").style.marginLeft = horizontal + "px";
+        }
+        
+        
+        function MarginB()  {
+            // Glace du début
+            if (vertical > 100 && vertical < 280 && horizontal > -160 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550580131-nouvelle-lune-avec-visage-whatsapp-1f31a.jpg')";
+
+        }
+            //Glace du début
+            else if (vertical < 160 || vertical > 240 && horizontal > -160 && horizontal < 160) {
+            document.getElementById("smiley").style.background = "url('https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png')";
+
+        }
+            vertical += 40;  
+            document.getElementById("smiley").style.marginBottom = vertical + "px";
+        }
+        
+        console.log(horizontal);
+        
+        </script>
+</body>
+</html>
