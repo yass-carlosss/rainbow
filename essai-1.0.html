@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.deuv {
+  margin-top: 210px;
+  width: 50px;
+  height: 50px;
+  background: url("https://image.noelshack.com/fichiers/2019/08/2/1550576531-emoji-leger-sourire-1f642-1.png");
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+}
+
+/* Standard syntax */
+@keyframes example {
+  0%   {bottom:0px;}
+  6%   {bottom:25px;}
+  12%  {bottom:50px;}
+  18%   {bottom:75px;}
+  25%  {bottom:100px;}
+  31%   {bottom:125px;}
+  37%  {bottom:150px;}
+  43%   {bottom:175px;}
+  50% {bottom:200px;}
+  56%   {bottom:175px;}
+  62%  {bottom:150px;}
+  68%   {bottom:125px;}
+  75%  {bottom:100px;}
+  81%   {bottom:75px;}
+  87%  {bottom:50px;}
+  93%   {bottom:25px;}
+  100% {bottom:0px;}
+}
+</style>
+</head>
+<body>
+<button onclick="Apa()">tape</button>
+<p class="increment">0</p>
+<div class="deuv">0</div>
+<script>
+var p = document.querySelector('div')
+
+
+
+
+document.addEventListener('keydown', haut, false);
+
+function haut () {
+var x = event.key
+var number = parseInt(p.innerText);
+if (x == "ArrowRight") {
+    
+    number += 10;
+    p.style.marginLeft = number + "px";
+    p.innerText = number;
+    }
+else if (x == "ArrowLeft") {
+    number -= 10;
+    p.style.marginLeft = number + "px";
+    p.innerText = number;
+    }
+else {
+alert("pas s");
+}
+}
+</script>
+
+
+
+</body>
+</html>
+
